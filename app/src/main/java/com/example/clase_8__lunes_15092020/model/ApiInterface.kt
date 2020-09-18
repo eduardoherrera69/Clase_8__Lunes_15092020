@@ -5,7 +5,7 @@ import retrofit2.http.GET
 
 interface ApiInterface {
 
-    @GET("realestate")
+  @GET("realestate")
     fun getDataFromApi() : Call<List<Terrain>>
 
 

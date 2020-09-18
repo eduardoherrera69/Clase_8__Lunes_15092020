@@ -7,12 +7,16 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class Repository {
-    private val service = RetrofitClient.getRetrofitClient()
+
+   private val service = RetrofitClient.getRetrofitClient()
    val mLiveData : MutableLiveData<List<Terrain>> = MutableLiveData()
 
+
+    //La vieja confiable
     fun getDataFromServer(){
         val  call = service.getDataFromApi()
         call.enqueue(object : Callback<List<Terrain>>{
+
             override fun onResponse(call: Call<List<Terrain>>, response: Response<List<Terrain>>) {
                 when(response.code()){
                     in 200..299 -> mLiveData.postValue(response.body())
